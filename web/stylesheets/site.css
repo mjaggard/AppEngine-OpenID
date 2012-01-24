@@ -1,0 +1,187 @@
+html
+{
+    background-attachment: fixed;
+    background-image: url('../images/footer.png');
+    background-position: bottom;
+    background-repeat: repeat-x;
+	background-color: #eee;
+}
+
+a
+{
+    color: inherit;
+}
+
+.wholepage
+{
+    width: 950px;
+    margin: auto;
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+	 background-color: #fff;
+}
+
+#headerarea
+{
+    background-image: url('../images/header.jpg');
+    width: 100%;
+    height: 250px;
+    margin: auto;
+    display: block;
+    text-decoration: none;
+}
+
+#menuarea ul
+{
+    float: left;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+#menuarea div
+{
+    padding-top: 0.3em;
+}
+
+#menuarea a
+{
+    text-decoration: none;
+    height: 100%;
+    padding: 0 1em;
+    display: block;
+    background-color: #ddd;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#menuarea a#selected
+{
+    background-color: #fff;
+}
+
+#menuarea a:hover
+{
+    background-color: #aaa;
+    background-color: rgba(255, 200, 200, 0.6);
+}
+
+#menuarea ul li
+{
+    list-style: none;
+    font-size: 120%;
+    float: left;
+    border-right: 2px solid black;
+    height: 100%;
+}
+
+#menuarea
+{
+    margin-top: -2em;
+    height: 2em;
+}
+
+.forborder
+{
+    float: right;
+    margin: 25px;
+    /*border: 1px solid #fff;*/
+}
+
+#IE .lighterbackground,
+#IE #menuarea
+{
+    background-color: transparent;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff);
+}
+
+.lighterbackground
+{
+    height: 100%;
+    padding: 10px 20px 20px;
+    background-color: #aaa;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.sitename
+{
+    font-size: 400%;
+    color: #000;
+}
+
+.tagline
+{
+    font-size: 140%;
+    color: #000;
+}
+
+#bodyarea
+{
+    padding: 0 10px;
+    text-align: left;
+}
+
+#footerarea,
+#footerarea *
+{
+    color: #aaa;
+}
+
+#footerarea
+{
+    margin: auto;
+    height: 4em;
+    padding: 0 10px;
+}
+
+#footerarea div
+{
+    float: left;
+    margin: 2em 2em 0 0;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+#openid_btns label span
+{
+	display: none;
+}
+
+#openid_btns,
+#openid_btns div,
+#openid_btns div#openid_highlight
+{
+	float: left;
+	padding: 5px;
+}
+
+#openid_choice p
+{
+	margin-bottom: 0;
+}
+
+#openid_choice br
+{
+	clear: both;
+}
+
+#openid_form
+{
+	width: auto;
+}
+
+/* YES really double the margin for a ul inside an index_area */
+.index_area ul
+{
+	margin-left: 3em;
+}
+
+.index_area
+{
+	margin-left: 1em;
+}

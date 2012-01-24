@@ -1,0 +1,12 @@
+This is a VERY basic set of web pages - I didn't want my branding on this example and I couldn't be bothered to re-do the header and footer. So the pages you see don't even include &lt;html&gt; sorry.
+
+<a href="/public/login_required">Login here</a>
+<a href="/public/openid_logout">Log out here</a>
+<div id="loggedin"></div>
+
+		<script src="http://yui.yahooapis.com/combo?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&2.9.0/build/element/element-min.js&2.9.0/build/container/container_core-min.js&2.9.0/build/menu/menu-min.js&2.9.0/build/button/button-min.js&2.9.0/build/editor/simpleeditor-min.js"></script>
+		<script src="/javascript/loggedin.js"></script>
+		<script src="/javascript/openid-mat.js"></script>
+		<script>
+			if (checkIfLoggedIn) checkIfLoggedIn();
+			</script>
