@@ -1,5 +1,7 @@
 package uk.org.jaggard.test;
 
+import com.google.appengine.api.datastore.*;
+import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class PublicServlet extends ServletUtil
 	public static final String LOGIN_USERNAME = "openid_username";
 	public static final String NEXT_PAGE_PARAM = "continue";
 	public static final String INTERIM_PAGE = "loggedin_interim";
+	public static final String CHECK_USER_ID = "check_user_id";
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -132,6 +135,52 @@ public class PublicServlet extends ServletUtil
 			{
 				resp.sendRedirect("/");
 				return;
+			}
+		}
+		else if (uri.contains(CHECK_USER_ID))
+		{
+			UserService us = UserServiceFactory.getUserService();
+			resp.setContentType("text/plain");
+			PrintWriter out = resp.getWriter();
+			User user = us.getCurrentUser();
+			if (user == null)
+				out.println("User is null");
+			else
+			{
+				out.print("The UserID is ");
+				out.println(user.getUserId());
+				DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+				Entity toPut = new Entity("User", 1);
+				toPut.setUnindexedProperty("User", user);
+				Key k = ds.put(toPut);
+				try
+				{
+					Entity got = ds.get(k);
+					if (got == null)
+					{
+						out.println("got is null");
+						return;
+					}
+					Object newUserO = got.getProperty("User");
+					if (newUserO == null)
+					{
+						out.println("property 'User' is null");
+						return;
+					}
+					if (!(newUserO instanceof User))
+					{
+						out.println("property 'User' is not an instance of User");
+						return;
+					}
+					User newUser = (User) newUserO;
+					out.print("The UserID from the datastore is ");
+					out.println(newUser.getUserId());
+				}
+				catch (EntityNotFoundException ex)
+				{
+					log.log(Level.WARNING, "Trying to put and immediately get a user object, we've failed to get");
+					out.println("Trying to put and immediately get a user object, we've failed to get");
+				}
 			}
 		}
 		else

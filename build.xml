@@ -71,4 +71,13 @@
     <target name="datanucleusenhance" description="Performs JDO enhancement on compiled data classes." depends="copyjars">
         <!-- <enhance_war war="${build.web.dir}" /> -->
     </target>
+
+    <target name="runserver" depends="datanucleusenhance"
+      description="Starts the development server.">
+        <dev_appserver war="${build.web.dir}" port="${appengine.http.port}" >
+            <options>
+                <arg value="--jvm_flag=-Dappengine.user.timezone=UTC"/>
+            </options>
+        </dev_appserver>
+    </target>
 </project>
